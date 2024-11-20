@@ -58,6 +58,7 @@
           
           <li><a class="github" aria-label="GitHub" href="https://github.com/shivam0815" target="_blank"><i class="fab fa-github"></i></a></li>
           </ul>
+          
 
         <!-- <div class="icons">
           <i class="fas fa-moon"></i>
@@ -80,8 +81,8 @@
     <div class="row">
       
 
-    <div class="image"></div>
-        <!-- <img draggable="false" class="tilt" src="./assets/images/profile2.jpg" alt=""> -->
+     <!-- <div class="image"></div>
+         <img draggable="false" class="tilt" src="/shiva-port/contact-form/public/shiva.jpg" alt=""> -->
     
     <div class="content">
         <h3>I'm shivam shukla</h3>
@@ -107,7 +108,7 @@
         </div>
         
         <div class="resumebtn">
-            <a href="resume.jpg" target="_blank" class="btn"><span>Resume</span>
+            <a href="shivam final resume.jpg" target="_blank" class="btn"><span>Resume</span>
                 <i class="fas fa-chevron-right"></i>
             </a>
         </div>
@@ -223,10 +224,10 @@
     </div>
 
     <div class="project">
-      <img src="flipcart.png" alt="Project 4 Image">
-      <h3>Flipkart Landing Page</h3>
-      <p>A landing page concept for Flipkart created using HTML and CSS.</p>
-      <a href="https://github.com/shivam0815" class="btn" target="_blank">View Code</a>
+      <img src="Screenshot 2024-04-22 232047.png" alt="Project 4 Image">
+      <h3>Weather website</h3>
+      <p>Weather website   using HTML and CSS.</p>
+      <a href="https://weather8103.netlify.app/" class="btn" target="_blank">View Code</a>
     </div>
   </div>
 </section>
@@ -251,11 +252,12 @@
     <div class="container right">
       <div class="content">
         <div class="tag">
-          <h2>Self Employed</h2>
+          <h2>Safety and Quality Forum of India</h2>
         </div>
         <div class="desc">
-            <h3>Fronted developer</h3>
-            <p>Oct 2023 - present</p>
+          <h3>Web Developer (Internship)</h3>
+            <p>July 2024 - Sept 2024</p>
+            <p>Contributed to creating engaging and responsive designs for the organization's digital platforms, improving user experience.</p>
         </div>
       </div>
     </div>
@@ -263,7 +265,7 @@
     
 
   <div class="morebtn">
-    <a href="/experience" class="btn"><span>View All</span>
+    <a href="Certificate.png" class="btn"><span>View All</span>
       <i class="fas fa-arrow-right"></i>
   </a>
   </div>
@@ -283,31 +285,62 @@
       <div class="image-box">
         <img draggable="false" src="2.png" alt="" >
       </div>
-    <form id="contact-form">
+      <form id="contact-form">
+        <div class="form-group">
+          <div class="field">
+            <input type="text" name="name" placeholder="Name" required>
+            <i class='fas fa-user'></i>
+          </div>
+          <div class="field">
+            <input type="email" name="email" placeholder="Email" required>
+            <i class='fas fa-envelope'></i>
+          </div>
+          <div class="field">
+            <input type="number" name="phone" placeholder="Phone">
+            <i class='fas fa-phone-alt'></i>
+          </div>
+          <div class="message">
+            <textarea placeholder="Message" name="message" required></textarea>
+            <i class="fas fa-comment-dots"></i>
+          </div>
+        </div>
+        <div class="button-area">
+          <button type="submit">Submit <i class="fa fa-paper-plane"></i></button>
+        </div>
+      </form>
       
-      <div class="form-group">
-        <div class="field">
-          <input type="text" name="name" placeholder="Name" required>
-          <i class='fas fa-user'></i>
-        </div>
-        <div class="field">
-          <input type="email" name="email" placeholder="Email" required>
-          <i class='fas fa-envelope'></i>
-        </div>
-        <div class="field">
-          <input type="number" name="phone" placeholder="Phone">
-          <i class='fas fa-phone-alt'></i>
-        </div>
-        <div class="message">
-        <textarea placeholder="Message" name="message" required></textarea>
-        <i class="fas fa-comment-dots"></i>
-        </div>
-        </div>
-      <div class="button-area">
-        <button type="submit" >
-          Submit <i class="fa fa-paper-plane"></i></button>
-      </div>
-    </form>
+      <script>
+        document.getElementById('contact-form').addEventListener('submit', async function (e) {
+          e.preventDefault();
+      
+          const formData = {
+            name: e.target.name.value,
+            email: e.target.email.value,
+            phone: e.target.phone.value,
+            message: e.target.message.value
+          };
+      
+          try {
+            const response = await fetch('http://localhost:5000/contact', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(formData)
+            });
+      
+            if (response.ok) {
+              alert('Message sent successfully');
+            } else {
+              alert('Failed to send message');
+            }
+          } catch (error) {
+            console.error('Error:', error);
+            alert('Error sending message');
+          }
+        });
+      </script>
+      
   </div>
   </div>
 </section>
